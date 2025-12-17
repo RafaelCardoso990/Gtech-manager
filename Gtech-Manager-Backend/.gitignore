@@ -2,3 +2,37 @@
 appsettings.Development.json
 appsettings.Local.json
 .env
+# =========================
+# DOTNET (Backend)
+# =========================
+**/bin/
+**/obj/
+**/.vs/
+**/*.user
+**/*.suo
+
+# AppSettings sensíveis
+**/appsettings.Development.json
+**/appsettings.Local.json
+**/appsettings.*.json
+
+# User Secrets
+**/secrets.json
+
+# =========================
+# FRONTEND (Node)
+# =========================
+**/node_modules/
+**/.env
+**/.env.*
+
+# =========================
+# IDEs
+# =========================
+**/.vscode/
+**/.idea/
+
+# =========================
+# HTTP files
+# =========================
+**/*.http
