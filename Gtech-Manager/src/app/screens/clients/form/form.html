@@ -1,0 +1,21 @@
+<form class="bg-zinc-900 max-w-max rounded-2xl py-4 px-4 flex flex-col"
+[formGroup]="clientForm" (ngSubmit)="onSubmit()">
+
+    <label for="name">Nome: </label>
+    <input class="bg-white/25 rounded-md" id="name" type="text" formControlName="name" />
+
+    @if (clientForm.get('name')?.invalid && clientForm.get('name')?.touched) {
+    <small class="text-red-500">Nome é obrigatório</small>
+    }
+
+    
+    <label for="phone">Telefone: </label>
+    <input class="bg-white/25 rounded-md" id="phone" type="text" formControlName="phone" />
+    
+    @if (clientForm.get('phone')?.invalid && clientForm.get('phone')?.touched) {
+   <small class="text-red-500">Telefone obrigatório</small>
+   }
+    <p>Preencha os dados para que o usúario seja cadastrado</p>
+     <button class="bg-orange-500 max-w-max rounded-md p-2 mt-2" type="submit"
+        [disabled]="!clientForm.valid">Submit</button>
+</form>

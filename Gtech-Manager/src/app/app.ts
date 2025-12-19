@@ -1,12 +1,12 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { Page } from "./components/shared/page/page";
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet],
+  selector: 'app-root',  
   templateUrl: './app.html',
-  styleUrl: './app.sass'
+  styleUrl: './app.sass',
+  imports: [Page]
 })
 export class App {
-  protected readonly title = signal('Gtech-Manager');
+  
 }

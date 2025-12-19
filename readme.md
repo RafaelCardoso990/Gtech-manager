@@ -18,6 +18,17 @@ Criar um sistema simples para:
 - Diagramas: [[link](https://brass-satellite-67d.notion.site/Diagramas-2b62d1975eee8050832dc3fed10f7044?pvs=73)]
 
 ## Próximos passos
-- Conectar Banco PostgreSQL
-- Cria CRUD cadastro de clientes
-- Criar Tela cadastro de clientes
+Atualizo aqui a cada passo feito.
+
+- Conectar Frontend <-> Backend
+- Complementar tela de Clientes {
+    Create → já começou com submit do form
+    Read → listar clientes 
+    Update → editar cliente (puxar dados pro form)
+    Delete → remover cliente
+}
+- Complementar UX/UI tela de Clientes {
+    Tailwind para inputs, botões, listas
+    Feedback visual → loaders, mensagens de erro/sucesso
+    Validação real → required, maxLength, pattern
+}
