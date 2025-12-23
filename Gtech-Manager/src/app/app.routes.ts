@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { Home } from './screens/home/home';
+import { App } from './app';
 
 // App Router, faz as linkagens da pagina! 
 export const routes: Routes = [

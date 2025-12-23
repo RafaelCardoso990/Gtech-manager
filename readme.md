@@ -20,10 +20,7 @@ Criar um sistema simples para:
 ## Próximos passos
 Atualizo aqui a cada passo feito.
 
-- Conectar Frontend <-> Backend
-- Complementar tela de Clientes {
-    Create → já começou com submit do form
-    Read → listar clientes 
+- Complementar tela de Clientes { 
     Update → editar cliente (puxar dados pro form)
     Delete → remover cliente
 }
@@ -32,3 +29,4 @@ Atualizo aqui a cada passo feito.
     Feedback visual → loaders, mensagens de erro/sucesso
     Validação real → required, maxLength, pattern
 }
+

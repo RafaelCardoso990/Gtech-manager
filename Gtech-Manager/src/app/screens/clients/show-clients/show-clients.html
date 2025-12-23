@@ -1,0 +1,16 @@
+<div>
+    @for (c of client(); track c.id) {
+    <div class="bg-white/25 rounded-lg p-4 mb-2 flex gap-2 flex-col relative cursor-pointer">
+        <p>{{ c.nome }}</p>
+        <p>{{ c.telefone }}</p>
+        <p>{{ c.email }}</p>
+        <button mat-icon-button color="warn" class="absolute right-5 bottom-2 cursor-pointer" (click)="onDeleteClient.emit(c.id)">
+            <mat-icon>delete</mat-icon>
+        </button>
+
+        <button mat-icon-button color="primary" class="absolute right-5 bottom-15 cursor-pointer" (click)="onEditClient.emit(c)">
+            <mat-icon>edit</mat-icon>           
+        </button>
+    </div>
+    }
+</div>

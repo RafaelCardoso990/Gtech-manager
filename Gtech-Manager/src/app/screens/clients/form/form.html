@@ -1,21 +1,46 @@
-<form class="bg-zinc-900 max-w-max rounded-2xl py-4 px-4 flex flex-col"
-[formGroup]="clientForm" (ngSubmit)="onSubmit()">
 
-    <label for="name">Nome: </label>
-    <input class="bg-white/25 rounded-md" id="name" type="text" formControlName="name" />
+@if (successMessage) {
+  <div class="bg-green-500 text-white p-2 rounded animate-fade-in">
+    {{ successMessage }}
+  </div>
+} @else if (errorMessage) {
+  <div class="bg-red-500 text-white p-2 rounded animate-fade-in">
+    {{ errorMessage }}
+  </div>
+}
 
-    @if (clientForm.get('name')?.invalid && clientForm.get('name')?.touched) {
-    <small class="text-red-500">Nome é obrigatório</small>
+
+<form class="bg-zinc-900 w-full rounded-2xl py-4 px-4 flex flex-col" [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+
+  <label for="nome">Nome: </label>
+  <input class="bg-white/25 rounded-md p-1" id="nome" type="text" formControlName="nome" [value]="clientToEdit?.nome" />
+
+  @if (clientForm.get('nome')?.invalid && clientForm.get('nome')?.touched) {
+  <small class="text-red-500">Nome é obrigatório</small>
+  }
+
+
+  <label for="telefone">Telefone: </label>
+  <input class="bg-white/25 rounded-md p-1" id="telefone" type="text" formControlName="telefone"
+    [value]="clientToEdit?.telefone" />
+
+  @if (clientForm.get('telefone')?.invalid && clientForm.get('telefone')?.touched) {
+  <small class="text-red-500">Telefone obrigatório</small>
+  }
+
+  <label for="email">Email: </label>
+  <input class="bg-white/25 rounded-md p-1" id="email" type="text" formControlName="email"
+    [value]="clientToEdit?.email" />
+
+  @if (clientForm.get('email')?.invalid && clientForm.get('email')?.touched) {
+  <small class="text-red-500">Email obrigatório</small>
+  }
+  <p>Preencha os dados para que o usúario seja cadastrado</p>
+  <button type="submit" class="bg-orange-500 max-w-max rounded-md p-2 mt-2 cursor-pointer" [disabled]="!clientForm.valid">
+    @if (loading) {
+    Salvando...
+    } @else {
+    {{ clientToEdit ? 'Atualizar' : 'Adicionar' }}
     }
-
-    
-    <label for="phone">Telefone: </label>
-    <input class="bg-white/25 rounded-md" id="phone" type="text" formControlName="phone" />
-    
-    @if (clientForm.get('phone')?.invalid && clientForm.get('phone')?.touched) {
-   <small class="text-red-500">Telefone obrigatório</small>
-   }
-    <p>Preencha os dados para que o usúario seja cadastrado</p>
-     <button class="bg-orange-500 max-w-max rounded-md p-2 mt-2" type="submit"
-        [disabled]="!clientForm.valid">Submit</button>
+  </button>
 </form>

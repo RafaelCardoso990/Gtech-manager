@@ -1,4 +1,12 @@
 <div class="flex flex-col gap-6">
     <app-title main="Clientes" sub="Página de clientes cadastrados"></app-title>
-    <app-clientForms></app-clientForms>
+    <app-clientForms 
+        [clientToEdit]="clientToEdit()"
+        (onAddClient)="clientToEdit() ? updateClient($event) : addClient($event)"
+        [loading]="loading()"
+        [successMessage]="successMessage()"
+        [errorMessage]="errorMessage()">
+    </app-clientForms>
+    <app-show-clients [client]="clients()" (onDeleteClient)="deleteClient($event)" (onEditClient)="editClient($event)">
+    </app-show-clients>
 </div>

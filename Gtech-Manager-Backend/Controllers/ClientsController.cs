@@ -23,12 +23,41 @@ namespace Gtech_Manager_Backend.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Cliente cliente)
+        public async Task<IActionResult> Create([FromBody] Cliente cliente)
         {
             _context.Clientes.Add(cliente);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
+            return Ok(cliente);
+        }
 
-            return CreatedAtAction(nameof(Get), new {id = cliente.Id}, cliente);
+        [HttpDelete("{id:guid}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var cliente = await _context.Clientes.FirstOrDefaultAsync(c => c.Id == id);
+            if (cliente == null)
+            {
+                return NotFound();
+            }
+
+            _context.Clientes.Remove(cliente);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] Cliente cliente)
+        {
+            var existingCliente = await _context.Clientes.FirstOrDefaultAsync(c => c.Id == id);
+            if (existingCliente == null)
+            {
+                return NotFound();
+            }            
+
+            _context.Entry(existingCliente).CurrentValues.SetValues(cliente);
+            await _context.SaveChangesAsync();
+
+            return Ok(existingCliente);
         }
     }
 }
